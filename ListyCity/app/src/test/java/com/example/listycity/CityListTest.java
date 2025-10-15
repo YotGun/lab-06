@@ -50,4 +50,27 @@ public class CityListTest {
         assertEquals(0, city.compareTo(cityList.getCities().get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
     }
+
+    @Test
+    public void testHasCity() {
+        CityList cityList = mockCityList();
+        assertTrue(cityList.hasCity(mockCity()));
+    }
+
+    @Test
+    public void testDelete() {
+        CityList cityList = mockCityList();
+        cityList.delete(mockCity());
+        assertEquals(0, cityList.getCities().size());
+    }
+
+    @Test
+    public void testCountCities() {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.countCities());
+        City city = new City("Regina", "Saskatchewan");
+        cityList.add(city);
+        assertEquals(2, cityList.countCities());
+    }
+
 }
