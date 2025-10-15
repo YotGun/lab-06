@@ -58,19 +58,19 @@ public class CityListTest {
     }
 
     @Test
-    public void testDelete() {
-        CityList cityList = mockCityList();
-        cityList.delete(mockCity());
-        assertEquals(0, cityList.getCities().size());
-    }
-
-    @Test
     public void testCountCities() {
         CityList cityList = mockCityList();
         assertEquals(1, cityList.countCities());
         City city = new City("Regina", "Saskatchewan");
         cityList.add(city);
         assertEquals(2, cityList.countCities());
+    }
+
+    @Test
+    public void testDelete() {
+        CityList cityList = mockCityList();
+        cityList.delete(mockCity());
+        assertEquals(0, cityList.countCities());
     }
 
 }
